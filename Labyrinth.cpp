@@ -1,13 +1,7 @@
-//============================================================================
-// Name        : Labirynt.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
 #include <iostream>
 #include <time.h>
-#include <stdio.h>
+
+
 using namespace std;
 char board[10][10];
 int x=0, y=0;
@@ -69,7 +63,8 @@ int main()
     set_fields();
     board[x][y]=FLD_PLAYER;
     char kierunek;
-    cout << "\f";
+		cout<<"\f";
+    
 //RYSOWANIE SCIAN
 
     for(int i=0; i<5; i++)
@@ -142,8 +137,7 @@ int main()
                 board[x][y]=FLD_PLAYER;
             }
         }
-
-        cout << "\f";
+		cout<<"\f";
     }
     while(game_state!=GS_END);
     return 0;
