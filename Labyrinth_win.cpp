@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <windows.h>
 #include <conio.h>
@@ -149,3 +150,4 @@ int main()
     while(game_state!=GS_END);
     return 0;
 }
+*/
