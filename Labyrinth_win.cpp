@@ -1,4 +1,3 @@
-/*
 #include <iostream>
 #include <windows.h>
 #include <conio.h>
@@ -14,6 +13,7 @@ enum FIELDS
     FLD_EMPTY='.',
     FLD_WALL='X',
     FLD_PLAYER='@',
+    FLD_QUEST='?',
 };
 
 enum GAMESTATE
@@ -34,28 +34,38 @@ void set_fields()
 
 void draw_board()
 {
-    cout << string(5, '\n');
-    for(int i=0; i<12; i++)
-        cout<<" X";
-    cout<<endl;
-    for (int i = 0; i < 10; i++)
-    {
-        if (i != 0)
-            cout << endl;
-        if (i != 10)
-            cout << " " << "X";
+	cout << string(5, '\n');
+	for (int i = 0; i < 12; i++) {
+		if (i == 1)
+			cout << " O";
+		else
+			cout << " H";
+	}
 
-        for (int j = 0; j < 10; j++)
-        {
-            if (j == 0)
-                cout << "|";
-            cout << board[i][j] << "|";
-        }
-    }
-    cout<<endl;
+	cout << endl;
+	for (int i = 0; i < 10; i++) {
+		if (i != 0)
+			cout << endl;
+		if (i != 10)
+			cout << " " << "H";
 
-    for(int i=0; i<12; i++)
-        cout<<" X";
+		for (int j = 0; j < 10; j++) {
+			if (j == 0)
+				cout << "|";
+
+			cout << board[i][j] << "|";
+			if (j == 9)
+				cout << "H";
+		}
+	}
+	cout << endl;
+
+	for (int i = 0; i < 12; i++) {
+		if (i == 10)
+			cout << " O";
+		else
+			cout << " H";
+	}
 }
 
 
@@ -70,8 +80,34 @@ int main()
     system("cls");
 //RYSOWANIE SCIAN
 
-    for(int i=0; i<5; i++)
-        board[i][1]=FLD_WALL;
+    	for (int i = 0; i < 3; i++)
+		board[i][1] = FLD_WALL;
+	for (int i = 0; i < 4; i++)
+		board[4][i] = FLD_WALL;
+	board[3][3] = FLD_WALL;
+	board[1][3] = FLD_WALL;
+	board[1][4] = FLD_WALL;
+	board[0][6] = FLD_WALL;
+	board[1][8] = FLD_WALL;
+	board[1][9] = FLD_WALL;
+	for (int i = 2; i < 9; i++)
+		board[i][5] = FLD_WALL;
+	for (int i = 6; i < 10; i++)
+		board[2][i] = FLD_WALL;
+	board[8][0] = FLD_WALL;
+	for (int i = 1; i < 5; i++)
+		board[6][i] = FLD_WALL;
+	board[7][2] = FLD_WALL;
+	board[7][3] = FLD_WALL;
+	board[8][3] = FLD_WALL;
+	for (int i = 0; i < 4; i++)
+		board[9][i] = FLD_WALL;
+	board[8][6] = FLD_WALL;
+	for (int i = 4; i < 10; i++)
+		board[i][8] = FLD_WALL;
+	board[5][7] = FLD_WALL;
+	board[6][7] = FLD_WALL;
+	board[8][2] = FLD_QUEST;
 
 //////////////
     do
@@ -150,4 +186,4 @@ int main()
     while(game_state!=GS_END);
     return 0;
 }
-*/
+
